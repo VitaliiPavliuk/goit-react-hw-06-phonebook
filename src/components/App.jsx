@@ -1,7 +1,3 @@
-import { nanoid } from 'nanoid';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
