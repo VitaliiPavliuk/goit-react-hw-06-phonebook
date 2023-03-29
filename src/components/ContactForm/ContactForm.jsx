@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { ContactFormSt, AddBtn } from './ContactForm.styled';
+import { addContact } from 'redux/contactsSlice';
+import { useDispatch } from 'react-redux';
 
-export const ContactForm = ({ onAddContact }) => {
+export const ContactForm = () => {
   const [contactForm, setContactForm] = useState({
     name: '',
     number: '',
   });
+
+  const dispatch = useDispatch();
 
   const handleInputChange = ({ target: { name, value } }) => {
     setContactForm(prev => ({ ...prev, [name]: value.trim() }));
@@ -20,7 +24,7 @@ export const ContactForm = ({ onAddContact }) => {
       number: contactForm.number,
     };
 
-    onAddContact(contact);
+    dispatch(addContact(contact));
 
     e.currentTarget.reset();
     reset();
@@ -60,4 +64,4 @@ export const ContactForm = ({ onAddContact }) => {
   );
 };
 
-ContactForm.propTypes = { onAddContact: PropTypes.func };
+// ContactForm.propTypes = { onAddContact: PropTypes.func };
