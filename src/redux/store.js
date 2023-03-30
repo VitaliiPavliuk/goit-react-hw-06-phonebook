@@ -14,15 +14,11 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-// import { postsReducer } from './postsSlice';
-
 const contactsConfig = {
   key: 'contacts',
   storage,
 
   //   whitelist: ['contacts'],
-
-  //   whitelist: ["products"] <--> blacklist: ["pressedKey", "showDetails"],
 };
 
 export const store = configureStore({
@@ -39,7 +35,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// export const store = configureStore({
-//   reducer: { contacts: contactsReducer, filter: filterReducer },
-// });

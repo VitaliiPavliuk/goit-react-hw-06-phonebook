@@ -1,8 +1,8 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
 import { ContactFormSt, AddBtn } from './ContactForm.styled';
 import { addContact } from 'redux/contactsSlice';
 import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
   const [contactForm, setContactForm] = useState({
@@ -20,6 +20,7 @@ export const ContactForm = () => {
     e.preventDefault();
 
     const contact = {
+      id: nanoid(),
       name: contactForm.name,
       number: contactForm.number,
     };
@@ -63,5 +64,3 @@ export const ContactForm = () => {
     </ContactFormSt>
   );
 };
-
-// ContactForm.propTypes = { onAddContact: PropTypes.func };

@@ -1,14 +1,8 @@
-// import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-
-  // const filterChange = e => {
-  //   const filterValue = e.target.value.toLowerCase().trim();
-  //   filterContacts(filterValue);
-  // };
 
   return (
     <div>
@@ -22,5 +16,3 @@ export const Filter = () => {
     </div>
   );
 };
-
-// Filter.propTypes = { filterContacts: PropTypes.func };
