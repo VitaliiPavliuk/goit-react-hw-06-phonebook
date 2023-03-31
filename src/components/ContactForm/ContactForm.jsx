@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { ContactFormSt, AddBtn } from './ContactForm.styled';
 import { addContact } from 'redux/contactsSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
+import { getContacts } from 'redux/selectors';
 
 export const ContactForm = () => {
+  const contacts = useSelector(getContacts);
   const [contactForm, setContactForm] = useState({
     name: '',
     number: '',
@@ -18,6 +20,15 @@ export const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (
+      contacts.some(
+        c => c.name.toLowerCase() === contactForm.name.toLowerCase()
+      )
+    ) {
+      alert(`${contactForm.name} is already in contacts.`);
+      return;
+    }
 
     const contact = {
       id: nanoid(),
